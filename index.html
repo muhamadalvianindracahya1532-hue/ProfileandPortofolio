@@ -1,173 +1,54 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Muhamad Alvian Indra Cahya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --card-bg: #ffffff;
-        }
+<style>
+    .portfolio-section {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .portfolio-section h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        font-size: 1.8rem;
+    }
+    .portfolio-item {
+        margin-bottom: 20px;
+    }
+    .portfolio-item ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    .portfolio-links a {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        transition: background 0.3s;
+    }
+    .portfolio-links a:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<!-- Tambahkan ini di dalam <body> tempat Anda ingin menaruh portofolio -->
+<div class="portfolio-section">
+    <h2>Portofolio & Pencapaian</h2>
+    <div class="portfolio-item">
+        <ul>
+            <li><strong>Pengembangan Website Rekrutmen:</strong> Mengembangkan website yang menjadi mimpi terpendam untuk proses rekrutmen PT Baneex Indonesia.</li>
+            <li><strong>Penghargaan KKN:</strong> Mendapatkan juara 2 untuk Desa dengan Mahasiswa paling aktif dalam pengembangan dan kontribusi penuh terhadap pengabdian masyarakat di Desa Cipayung.</li>
+        </ul>
         
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-            border-bottom: 5px solid var(--secondary-color);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-top: 10px;
-            color: #bdc3c7;
-        }
-
-        .contact-bar {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-
-        .contact-bar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-            font-size: 1.8rem;
-        }
-
-        .item {
-            margin-bottom: 25px;
-        }
-
-        .item h3 {
-            margin: 0 0 5px 0;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        .item .meta {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: #e8f4f8;
-            color: var(--secondary-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid var(--secondary-color);
-        }
-
-        .portfolio-links a {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-right: 10px;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-
-        .portfolio-links a:hover {
-            background-color: #2980b9;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .contact-bar a { display: block; margin: 5px 0; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>MUHAMAD ALVIAN INDRA CAHYA[span_0](start_span)[span_0](end_span)</h1>
-        <p>Lulusan S1 Manajemen Sumber Daya Manusia (IPK 3.36)[span_1](start_span)[span_1](end_span)</p>
-    </header>
-
-    <div class="contact-bar">
-        <a href="mailto:muhamadalvianindracahya1532@gmail.com">✉ muhamadalvianindracahya1532@gmail.com[span_2](start_span)[span_2](end_span)</a>
-        <a href="tel:081213790295">📞 081213790295[span_3](start_span)[span_3](end_span)</a>
-        <span>📍 Perumahan Unilever Blok D9 No 189, Kab. Bekasi[span_4](start_span)[span_4](end_span)</span>
+        <!-- Tombol Link Portofolio -->
+        <div class="portfolio-links">
+            <a href="https://ptbaneexindonesia.github.io/carrier/" target="_blank">🌐 Lihat Website Rekrutmen</a>
+            <a href="https://www.instagram.com/p/C_DezryygdB/" target="_blank">📊 Lihat Infografis KKN</a>
+        </div>
     </div>
-
-    <div class="container">
+</div>
