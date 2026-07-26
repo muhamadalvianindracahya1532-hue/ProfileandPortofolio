@@ -1,54 +1,327 @@
-<style>
-    .portfolio-section {
-        background-color: #ffffff;
-        border-radius: 10px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .portfolio-section h2 {
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-        font-size: 1.8rem;
-    }
-    .portfolio-item {
-        margin-bottom: 20px;
-    }
-    .portfolio-item ul {
-        padding-left: 20px;
-        margin-bottom: 15px;
-    }
-    .portfolio-links a {
-        display: inline-block;
-        background-color: #3498db;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        font-weight: 600;
-        transition: background 0.3s;
-    }
-    .portfolio-links a:hover {
-        background-color: #2980b9;
-    }
-</style>
-
-<!-- Tambahkan ini di dalam <body> tempat Anda ingin menaruh portofolio -->
-<div class="portfolio-section">
-    <h2>Portofolio & Pencapaian</h2>
-    <div class="portfolio-item">
-        <ul>
-            <li><strong>Pengembangan Website Rekrutmen:</strong> Mengembangkan website yang menjadi mimpi terpendam untuk proses rekrutmen PT Baneex Indonesia.</li>
-            <li><strong>Penghargaan KKN:</strong> Mendapatkan juara 2 untuk Desa dengan Mahasiswa paling aktif dalam pengembangan dan kontribusi penuh terhadap pengabdian masyarakat di Desa Cipayung.</li>
-        </ul>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Muhamad Alvian Indra Cahya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --accent-color: #e67e22; /* Warna stempel */
+        }
         
-        <!-- Tombol Link Portofolio -->
-        <div class="portfolio-links">
-            <a href="https://ptbaneexindonesia.github.io/carrier/" target="_blank">🌐 Lihat Website Rekrutmen</a>
-            <a href="https://www.instagram.com/p/C_DezryygdB/" target="_blank">📊 Lihat Infografis KKN</a>
-        </div>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 10px;
+            color: #bdc3c7;
+        }
+
+        .contact-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 2rem;
+        }
+
+        .item {
+            margin-bottom: 30px;
+        }
+
+        .item h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .item .meta {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Gaya untuk Portofolio Visual */
+        .portfolio-visual-container {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+        }
+
+        .visual-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .work-sample-img {
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            border: 2px solid #ddd;
+        }
+
+        .visual-caption {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .visual-caption p {
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .visual-caption strong {
+            color: var(--primary-color);
+        }
+
+        .visual-caption em {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .portfolio-links a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-right: 12px;
+            margin-top: 15px;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+
+        .portfolio-links a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Gaya Keahlian */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background-color: #e8f4f8;
+            color: var(--secondary-color);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid #b3e0f2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Responsivitas Seluler */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .contact-bar a { display: block; margin: 8px 0; }
+            .visual-entry {
+                flex-direction: column;
+                align-items: center;
+            }
+            .work-sample-img {
+                max-width: 100%;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MUHAMAD ALVIAN INDRA CAHYA</h1>
+        <p>S1 Manajemen SDM | Quality Control & Operational Specialist</p>
+    </header>
+
+    <div class="contact-bar">
+        <a href="mailto:muhamadalvianindracahya1532@gmail.com">✉ muhamadalvianindracahya1532@gmail.com</a>
+        <a href="tel:081213790295">📞 081213790295</a>
+        <span>📍 Bekasi Regency, West Java, Indonesia</span>
     </div>
-</div>
+
+    <div class="container">
+        
+        <!-- Profil Profesional -->
+        <div class="section">
+            <h2>Profil Profesional</h2>
+            <p>Berorientasi pada hasil, memiliki ketelitian tinggi, serta adaptif dalam mendukung efisiensi operasional dan pengembangan SDM perusahaan. Memiliki kombinasi pengalaman lintas divisi mulai dari Quality Control, Operasional Warehouse, Administrasi SDM/HR, hingga Kepemimpinan Organisasi. Memiliki rekam jejak teruji dalam pengoperasian alat ukur presisi (Faro CMM), analisis produk cacat (NG), serta pengelolaan data absensi dan evaluasi bonus tahunan.</p>
+        </div>
+
+        <!-- Portofolio & Pencapaian (Visual) -->
+        <div class="section">
+            <h2>Portofolio & Pencapaian</h2>
+            <div class="item">
+                <ul>
+                    <li><strong>Pengembangan Website Rekrutmen:</strong> Mengembangkan website yang menjadi mimpi terpendam untuk rekrutmen PT Baneex Indonesia.</li>
+                    <li><strong>Penghargaan KKN:</strong> Mendapatkan juara 2 untuk Desa dengan Mahasiswa paling aktif dalam pengembangan/kontribusi penuh terhadap pengabdian masyarakat Desa Cipayung.</li>
+                </ul>
+                
+                <!-- Bagian Visual Baru -->
+                <div class="portfolio-visual-container">
+                    <h3>Bukti Visual: Inspeksi Produk QC</h3>
+                    <div class="visual-entry">
+                        <!-- Menampilkan gambar yang diunggah -->
+                        <img src="image_12.png" alt="Label Inspeksi QC PT Baneex Indonesia" class="work-sample-img">
+                        <div class="visual-caption">
+                            <p><strong>Contoh Label Inspeksi Outgoing OQC:</strong></p>
+                            <p>Ini adalah label inspeksi OQC asli yang saya proses. Gambar menunjukkan ketelitian saya dalam mendokumentasikan hasil inspeksi untuk part <strong>"GUIDE CABLE K2VM"</strong> (Part Number: 64223-K59-N800-29). Dokumentasi ini mencakup tanggal produksi, tanggal pengiriman, jumlah (100 Pcs), dan paker (ARWAN).</p>
+                            <p>Bukti ini secara langsung memvalidasi keahlian saya dalam: <em>Analisis Produk Cacat (NG)</em>, <em>Ketelitian Tinggi</em>, <em>Keahlian Dokumentasi QC (Checksheet)</em>, dan <em>Verifikasi Standar Outgoing Quality Control (OQC)</em>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-links">
+                    <a href="https://ptbaneexindonesia.github.io/carrier/" target="_blank">Lihat Website Rekrutmen</a>
+                    <a href="https://www.instagram.com/p/C_DezryygdB/" target="_blank">Lihat Infografis KKN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pengalaman Kerja -->
+        <div class="section">
+            <h2>Pengalaman Kerja</h2>
+            
+            <div class="item">
+                <h3>PT Baneex Indonesia - Kab. Bekasi</h3>
+                <div class="meta">Staff Quality & SDM (sebelumnya: Staff Warehouse) | Oktober 2024 - Mei 2026</div>
+                <ul>
+                    <li><strong>Administrasi SDM:</strong> Memegang tanggung jawab penuh dalam penginputan, rekapitulasi, dan verifikasi data absensi serta lemburan seluruh karyawan secara rutin.</li>
+                    <li><strong>Quality Control & Leadership:</strong> Dipercaya pindah ke divisi Quality Control untuk mengoperasikan alat ukur presisi tinggi (Faro CMM, Height Gauge, Digital Caliper, dan Long Caliper).</li>
+                    <li><strong>Manajemen Tim:</strong> Memimpin dan mengoordinasikan tim operasional (4 orang) pada proses produksi bending manual.</li>
+                    <li><strong>Kinerja & Bonus:</strong> Mengolah data absensi dan mengombinasikannya dengan analisis kriteria kinerja karyawan untuk alokasi bonus tahunan.</li>
+                </ul>
+            </div>
+
+            <!-- ... (entri pengalaman lainnya tetap sama) ... -->
+        </div>
+
+        <!-- Pendidikan -->
+        <div class="section">
+            <h2>Pendidikan & Pelatihan</h2>
+            <div class="item">
+                <h3>S1 Manajemen Sumber Daya Manusia</h3>
+                <div class="meta">Universitas Pelita Bangsa, Kab. Bekasi | Lulus: Agustus 2025 | IPK: 3.36 (Sangat Memuaskan)</div>
+            </div>
+            <div class="item">
+                <h3>Kursus Bahasa Jepang Level N5</h3>
+                <div class="meta">LPK Yuuki Shorai Indonesia | Maret 2023 - Juni 2023</div>
+            </div>
+        </div>
+
+        <!-- Keahlian -->
+        <div class="section">
+            <h2>Keterampilan Inti</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Quality Control (Faro CMM, Caliper)</span>
+                <span class="skill-tag">Analisis Produk Cacat (NG Product)</span>
+                <span class="skill-tag">Administrasi Absensi & Lembur</span>
+                <span class="skill-tag">Inventory Management & Stock Opname</span>
+                <span class="skill-tag">Leadership & Tim Koordinator</span>
+                <span class="skill-tag">Microsoft Office</span>
+                <span class="skill-tag">IT Troubleshooting & Jaringan</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Muhamad Alvian Indra Cahya. Portofolio Profesional.</p>
+    </footer>
+
+</body>
+</html>
