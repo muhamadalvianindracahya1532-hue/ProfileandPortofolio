@@ -1,327 +1,173 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Muhamad Alvian Indra Cahya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Portofolio | Muhamad Alvian Indra Cahya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        gold: {
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --card-bg: #ffffff;
-            --accent-color: #e67e22; /* Warna stempel */
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-            border-bottom: 5px solid var(--secondary-color);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-top: 10px;
-            color: #bdc3c7;
-        }
-
-        .contact-bar {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .contact-bar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .contact-bar a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 12px;
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        .item {
-            margin-bottom: 30px;
-        }
-
-        .item h3 {
-            margin: 0 0 8px 0;
-            color: var(--primary-color);
-            font-size: 1.4rem;
-        }
-
-        .item .meta {
-            font-size: 0.95rem;
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* Gaya untuk Portofolio Visual */
-        .portfolio-visual-container {
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-            padding-top: 25px;
-        }
-
-        .visual-entry {
-            display: flex;
-            align-items: flex-start;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .work-sample-img {
-            max-width: 450px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            border: 2px solid #ddd;
-        }
-
-        .visual-caption {
-            flex: 1;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid var(--secondary-color);
-        }
-
-        .visual-caption p {
-            margin: 0 0 10px 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        .visual-caption strong {
-            color: var(--primary-color);
-        }
-
-        .visual-caption em {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .portfolio-links a {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-right: 12px;
-            margin-top: 15px;
-            transition: background 0.3s;
-            font-weight: 600;
-        }
-
-        .portfolio-links a:hover {
-            background-color: #2980b9;
-        }
-
-        /* Gaya Keahlian */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            background-color: #e8f4f8;
-            color: var(--secondary-color);
-            padding: 10px 18px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border: 1px solid #b3e0f2;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 50px;
-        }
-
-        /* Responsivitas Seluler */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .contact-bar a { display: block; margin: 8px 0; }
-            .visual-entry {
-                flex-direction: column;
-                align-items: center;
-            }
-            .work-sample-img {
-                max-width: 100%;
-                width: auto;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <header>
-        <h1>MUHAMAD ALVIAN INDRA CAHYA</h1>
-        <p>S1 Manajemen SDM | Quality Control & Operational Specialist</p>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-navy-900 tracking-wider">MAIC.</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-slate-600 hover:text-gold-600 font-medium transition">Tentang</a>
+                <a href="#experience" class="text-slate-600 hover:text-gold-600 font-medium transition">Pengalaman</a>
+                <a href="#skills" class="text-slate-600 hover:text-gold-600 font-medium transition">Keahlian</a>
+                <a href="#contact" class="text-slate-600 hover:text-gold-600 font-medium transition">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 max-w-6xl mx-auto flex flex-col items-center text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-navy-900 mb-4">
+            Muhamad Alvian Indra Cahya[cite: 1]
+        </h1>
+        <h2 class="text-xl md:text-2xl text-slate-600 mb-8 font-light max-w-2xl">
+            Profesional Quality Control, Administrasi SDM, & Operasional Gudang yang berorientasi pada presisi dan efisiensi manufaktur.[cite: 1]
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="px-8 py-3 bg-navy-900 text-white rounded-lg font-semibold hover:bg-navy-800 transition shadow-lg shadow-navy-900/20">
+                Hubungi Saya
+            </a>
+            <a href="#experience" class="px-8 py-3 bg-white text-navy-900 border border-slate-300 rounded-lg font-semibold hover:border-gold-500 hover:text-gold-600 transition">
+                Lihat Pengalaman
+            </a>
+        </div>
     </header>
 
-    <div class="contact-bar">
-        <a href="mailto:muhamadalvianindracahya1532@gmail.com">✉ muhamadalvianindracahya1532@gmail.com</a>
-        <a href="tel:081213790295">📞 081213790295</a>
-        <span>📍 Bekasi Regency, West Java, Indonesia</span>
-    </div>
-
-    <div class="container">
-        
-        <!-- Profil Profesional -->
-        <div class="section">
-            <h2>Profil Profesional</h2>
-            <p>Berorientasi pada hasil, memiliki ketelitian tinggi, serta adaptif dalam mendukung efisiensi operasional dan pengembangan SDM perusahaan. Memiliki kombinasi pengalaman lintas divisi mulai dari Quality Control, Operasional Warehouse, Administrasi SDM/HR, hingga Kepemimpinan Organisasi. Memiliki rekam jejak teruji dalam pengoperasian alat ukur presisi (Faro CMM), analisis produk cacat (NG), serta pengelolaan data absensi dan evaluasi bonus tahunan.</p>
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-navy-900 mb-6 border-b-2 border-gold-500 pb-2 inline-block">Tentang Saya</h2>
+            <p class="text-lg text-slate-700 leading-relaxed mb-4">
+                Saya adalah lulusan S1 Manajemen Sumber Daya Manusia dari Universitas Pelita Bangsa dengan IPK 3.36/4.00[cite: 1]. Saya memiliki kombinasi pengalaman kerja di bidang Quality Control, Administrasi HR/Personalia, serta Operasional Warehouse di lingkungan industri manufaktur[cite: 1].
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+                Teruji dalam melakukan inspeksi mutu, pengoperasian alat ukur presisi tinggi, dan analisis penyebab masalah (Root Cause Analysis)[cite: 1]. Saya berorientasi pada ketelitian tinggi, efisiensi operasional, kepemimpinan tim, serta pengembangan mutu dan SDM perusahaan[cite: 1].
+            </p>
         </div>
+    </section>
 
-        <!-- Portofolio & Pencapaian (Visual) -->
-        <div class="section">
-            <h2>Portofolio & Pencapaian</h2>
-            <div class="item">
-                <ul>
-                    <li><strong>Pengembangan Website Rekrutmen:</strong> Mengembangkan website yang menjadi mimpi terpendam untuk rekrutmen PT Baneex Indonesia.</li>
-                    <li><strong>Penghargaan KKN:</strong> Mendapatkan juara 2 untuk Desa dengan Mahasiswa paling aktif dalam pengembangan/kontribusi penuh terhadap pengabdian masyarakat Desa Cipayung.</li>
-                </ul>
-                
-                <!-- Bagian Visual Baru -->
-                <div class="portfolio-visual-container">
-                    <h3>Bukti Visual: Inspeksi Produk QC</h3>
-                    <div class="visual-entry">
-                        <!-- Menampilkan gambar yang diunggah --°>
-                        <img src="1001306543.JPG" alt="Label Inspeksi QC" class="work-sample-img">
-                        <div class="visual-caption">
-                            <p><strong>Contoh Label Inspeksi Outgoing OQC:</strong></p>
-                            <p>Ini adalah label inspeksi OQC asli yang saya proses. Gambar menunjukkan ketelitian saya dalam mendokumentasikan hasil inspeksi untuk part <strong>"GUIDE CABLE K2VM"</strong> (Part Number: 64223-K59-N800-29). Dokumentasi ini mencakup tanggal produksi, tanggal pengiriman, jumlah (100 Pcs), dan paker (ARWAN).</p>
-                            <p>Bukti ini secara langsung memvalidasi keahlian saya dalam: <em>Analisis Produk Cacat (NG)</em>, <em>Ketelitian Tinggi</em>, <em>Keahlian Dokumentasi QC (Checksheet)</em>, dan <em>Verifikasi Standar Outgoing Quality Control (OQC)</em>.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-links">
-                    <a href="https://ptbaneexindonesia.github.io/carrier/" target="_blank">Lihat Website Rekrutmen</a>
-                    <a href="https://www.instagram.com/p/C_DezryygdB/" target="_blank">Lihat Infografis KKN</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pengalaman Kerja -->
-        <div class="section">
-            <h2>Pengalaman Kerja</h2>
+    <!-- Experience Section (Grid Cards) -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-navy-900 mb-10 border-b-2 border-gold-500 pb-2 inline-block">Pengalaman Kerja</h2>
             
-            <div class="item">
-                <h3>PT Baneex Indonesia - Kab. Bekasi</h3>
-                <div class="meta">Staff Quality & SDM (sebelumnya: Staff Warehouse) | Oktober 2024 - Mei 2026</div>
-                <ul>
-                    <li><strong>Administrasi SDM:</strong> Memegang tanggung jawab penuh dalam penginputan, rekapitulasi, dan verifikasi data absensi serta lemburan seluruh karyawan secara rutin.</li>
-                    <li><strong>Quality Control & Leadership:</strong> Dipercaya pindah ke divisi Quality Control untuk mengoperasikan alat ukur presisi tinggi (Faro CMM, Height Gauge, Digital Caliper, dan Long Caliper).</li>
-                    <li><strong>Manajemen Tim:</strong> Memimpin dan mengoordinasikan tim operasional (4 orang) pada proses produksi bending manual.</li>
-                    <li><strong>Kinerja & Bonus:</strong> Mengolah data absensi dan mengombinasikannya dengan analisis kriteria kinerja karyawan untuk alokasi bonus tahunan.</li>
-                </ul>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <span class="text-gold-600 text-sm font-bold tracking-wider uppercase">Okt 2024 - Mei 2026[cite: 1]</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2">PT Baneex Indonesia[cite: 1]</h3>
+                    <p class="text-slate-500 font-medium mb-4">HR, Staff Quality & Warehouse[cite: 1]</p>
+                    <ul class="text-slate-600 text-sm list-disc list-inside space-y-2">
+                        <li>Mengelola administrasi personalia, absen, dan rekapitulasi lembur (SPKL)[cite: 1].</li>
+                        <li>Melakukan inspeksi mutu (incoming, in-process, final) dan menggunakan alat ukur presisi seperti Faro CMM[cite: 1].</li>
+                        <li>Melakukan Inbound/Outbound operations dan penerapan 5R/5S di gudang[cite: 1].</li>
+                    </ul>
+                </div>
 
-            <!-- ... (entri pengalaman lainnya tetap sama) ... -->
-        </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <span class="text-gold-600 text-sm font-bold tracking-wider uppercase">Mei 2024 - Jul 2024[cite: 1]</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2">PT Danendra Mitra Industri[cite: 1]</h3>
+                    <p class="text-slate-500 font-medium mb-4">Quality Control[cite: 1]</p>
+                    <ul class="text-slate-600 text-sm list-disc list-inside space-y-2">
+                        <li>Menyortir produk untuk memisahkan barang standar (OK), cacat (NG), dan repair[cite: 1].</li>
+                        <li>Mengidentifikasi dan mengklasifikasikan jenis kerusakan pada produk[cite: 1].</li>
+                    </ul>
+                </div>
 
-        <!-- Pendidikan -->
-        <div class="section">
-            <h2>Pendidikan & Pelatihan</h2>
-            <div class="item">
-                <h3>S1 Manajemen Sumber Daya Manusia</h3>
-                <div class="meta">Universitas Pelita Bangsa, Kab. Bekasi | Lulus: Agustus 2025 | IPK: 3.36 (Sangat Memuaskan)</div>
-            </div>
-            <div class="item">
-                <h3>Kursus Bahasa Jepang Level N5</h3>
-                <div class="meta">LPK Yuuki Shorai Indonesia | Maret 2023 - Juni 2023</div>
-            </div>
-        </div>
-
-        <!-- Keahlian -->
-        <div class="section">
-            <h2>Keterampilan Inti</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Quality Control (Faro CMM, Caliper)</span>
-                <span class="skill-tag">Analisis Produk Cacat (NG Product)</span>
-                <span class="skill-tag">Administrasi Absensi & Lembur</span>
-                <span class="skill-tag">Inventory Management & Stock Opname</span>
-                <span class="skill-tag">Leadership & Tim Koordinator</span>
-                <span class="skill-tag">Microsoft Office</span>
-                <span class="skill-tag">IT Troubleshooting & Jaringan</span>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100">
+                    <span class="text-gold-600 text-sm font-bold tracking-wider uppercase">Feb 2024[cite: 1]</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2">Komisi Pemilihan Umum[cite: 1]</h3>
+                    <p class="text-slate-500 font-medium mb-4">Anggota KPPS[cite: 1]</p>
+                    <ul class="text-slate-600 text-sm list-disc list-inside space-y-2">
+                        <li>Mengatur jalannya pemungutan suara di TPS dengan lebih dari 130 pemilih[cite: 1].</li>
+                        <li>Mencatat dan menyusun laporan hasil suara dengan akurasi 100%[cite: 1].</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Skills Section (Badges) -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-navy-900 mb-10 border-b-2 border-gold-500 pb-2 inline-block">Keahlian Profesional</h2>
+            
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">Quality Control & Assurance[cite: 1]</span>
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">Faro CMM & Caliper[cite: 1]</span>
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">Root Cause Analysis (5 Why, Fishbone)[cite: 1]</span>
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">SOP & Lembar Instruksi Kerja[cite: 1]</span>
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">Administrasi HR & Personalia[cite: 1]</span>
+                <span class="px-4 py-2 bg-navy-50 text-navy-900 rounded-full text-sm font-semibold border border-navy-100">Operasional Warehouse & 5R/5S[cite: 1]</span>
+                <span class="px-4 py-2 bg-gold-50 text-gold-600 rounded-full text-sm font-semibold border border-gold-200">Kepemimpinan Tim[cite: 1]</span>
+                <span class="px-4 py-2 bg-gold-50 text-gold-600 rounded-full text-sm font-semibold border border-gold-200">Problem Solving[cite: 1]</span>
+                <span class="px-4 py-2 bg-gold-50 text-gold-600 rounded-full text-sm font-semibold border border-gold-200">Ketelitian & Akurasi Data[cite: 1]</span>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Muhamad Alvian Indra Cahya. Portofolio Profesional.</p>
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-navy-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Mari Terhubung</h2>
+            <p class="text-slate-300 mb-10 max-w-xl mx-auto">
+                Saya selalu terbuka untuk mendiskusikan peluang baru dan kolaborasi di bidang Manajemen Mutu, Operasional, maupun HR.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <a href="mailto:muhamadalvianindracahya1532@gmail.com" class="hover:text-gold-500 transition">muhamadalvianindracahya1532@gmail.com[cite: 1]</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <span>+62 81213790295[cite: 1]</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Kabupaten Bekasi, Jawa Barat[cite: 1]</span>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-navy-800 text-sm text-slate-400">
+                <a href="https://www.linkedin.com/in/maindrac15" target="_blank" class="hover:text-white transition">LinkedIn Profile[cite: 1]</a><br><br>
+                &copy; 2026 Muhamad Alvian Indra Cahya. All rights reserved.
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
