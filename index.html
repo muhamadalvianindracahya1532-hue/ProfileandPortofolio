@@ -24,317 +24,349 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth; /* Efek meluncur halus saat menu diklik */
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
         }
 
+        /* Navbar */
+        nav {
+            background-color: rgba(15, 23, 42, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
         /* Header / Hero Section */
         header {
             background: linear-gradient(135deg, var(--primary-color), #1e293b);
             color: white;
-            padding: 100px 20px;
+            padding: 150px 20px 100px;
             text-align: center;
             border-bottom: 5px solid var(--accent-color);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            letter-spacing: 1px;
-            animation: fadeInDown 1s ease;
         }
 
         header h2 {
             font-size: 1.2rem;
             font-weight: 300;
             color: #94a3b8;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            animation: fadeIn 1.5s ease;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
         }
 
         /* Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 80px 20px; /* Padding besar agar scroll pas */
         }
 
         /* Section Titles */
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-color);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            width: 60px;
+            width: 80px;
             height: 4px;
             background: var(--accent-color);
             display: block;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
             border-radius: 2px;
         }
 
         /* Profile Section */
-        .profile-text {
-            text-align: justify;
-            font-size: 1rem;
-            color: #475569;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+        .profile-content {
             display: flex;
+            gap: 30px;
             align-items: center;
-            gap: 10px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .skill-card ul {
-            list-style: none;
-        }
-
-        .skill-card ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-            font-size: 0.95rem;
-        }
-
-        .skill-card ul li::before {
-            content: '▹';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        .profile-text p {
+            text-align: justify;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
 
         /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
         .timeline-item {
             background: var(--card-bg);
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
             margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .timeline-item h3 { color: var(--primary-color); }
+        .timeline-item h4 { color: var(--accent-color); margin: 5px 0 10px; }
+        .timeline-item p.date { color: #64748b; font-weight: 600; margin-bottom: 15px; font-size: 0.9rem;}
+
+        /* Portofolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .timeline-item h3 {
+        .portfolio-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            background-color: #cbd5e1; /* Warna abu-abu sebagai tempat foto sementara */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-size: 1.2rem;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
             color: var(--primary-color);
-            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        .timeline-item h4 {
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-details i {
             color: var(--accent-color);
-            font-weight: 600;
-            margin: 5px 0 15px 0;
-            font-size: 1rem;
+            font-size: 1.5rem;
         }
 
-        .timeline-item p.date {
-            font-size: 0.85rem;
-            color: #64748b;
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
             margin-bottom: 15px;
-            font-weight: 600;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form button {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2563eb;
         }
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 30px;
             background: var(--primary-color);
             color: white;
-            margin-top: 40px;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            text-align: center;
+            padding: 20px;
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .contact-info { flex-direction: column; gap: 10px; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            nav { flex-wrap: wrap; gap: 15px; }
+            header { padding-top: 120px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>MUHAMAD ALVIAN INDRA CAHYA</h1>
-        <h2>Staff Quality | Administrasi HR | Operasional Warehouse</h2>
-        <div class="contact-info">
-            <a href="mailto:muhamadalvianindracahya1532@gmail.com"><i class="fas fa-envelope"></i> muhamadalvianindracahya1532@gmail.com</a>
-            <a href="tel:+6281213790295"><i class="fas fa-phone"></i> +62 81213790295</a>
-            <a href="https://www.linkedin.com/in/maindrac15" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/maindrac15</a>
-            <a href="#"><i class="fas fa-map-marker-alt"></i> Kab. Bekasi, Jawa Barat</a>
-        </div>
+    <!-- Navigasi -->
+    <nav>
+        <a href="#header">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#pengalaman">Pengalaman</a>
+        <a href="#portofolio">Portofolio</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <!-- Header -->
+    <header id="header">
+        <h1>MUHAMAD ALVIAN INDRA CAHYA[cite: 1]</h1>
+        <h2>Staff Quality | Administrasi HR | Operasional Warehouse[cite: 1]</h2>
     </header>
 
-    <div class="container">
-        
-        <!-- Tentang Saya -->
-        <h2 class="section-title">Profil Profesional</h2>
-        <p class="profile-text">
-            Lulusan S1 Manajemen Sumber Daya Manusia dari Universitas Pelita Bangsa, dengan kombinasi pengalaman kerja di bidang Quality Control / Staff Quality, Administrasi HR/Personalia, serta Operasional Warehouse di lingkungan industri manufaktur. Teruji dalam melakukan inspeksi mutu (incoming, in-process, final), pengoperasian alat ukur presisi tinggi, analisis penyebab masalah (Root Cause Analysis), serta pembuatan dokumen standar mutu. Berorientasi pada ketelitian tinggi, efisiensi operasional, kepemimpinan tim, serta pengembangan mutu dan SDM perusahaan.
-        </p>
-
-        <br><br>
-
-        <!-- Keterampilan -->
-        <h2 class="section-title">Kompetensi Inti</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3><i class="fas fa-cogs"></i> Hard Skills</h3>
-                <ul>
-                    <li>Quality Control & Assurance (Incoming, In-Process, Final)</li>
-                    <li>Pengoperasian Alat Ukur Presisi (Faro CMM, Height Gauge, Caliper)</li>
-                    <li>Root Cause Analysis (5 Why, Fishbone, 8D Report)</li>
-                    <li>Administrasi HR (Absensi, SPKL, Kinerja)</li>
-                    <li>Operasional Warehouse (Inbound/Outbound, Stock Opname, 5R/5S)</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                <ul>
-                    <li>Kepemimpinan & Manajemen Tim</li>
-                    <li>Pemecahan Masalah (Problem Solving)</li>
-                    <li>Ketelitian & Akurasi Data</li>
-                    <li>Komunikasi & Koordinasi Lintas Divisi</li>
-                    <li>Adaptabilitas & Kerja Sama Tim</li>
-                </ul>
+    <!-- BAGIAN 1: PROFILE -->
+    <section id="profile" class="container">
+        <h2 class="section-title">Profile</h2>
+        <div class="profile-content">
+            <div class="profile-text">
+                <p>
+                    Lulusan S1 Manajemen Sumber Daya Manusia dari Universitas Pelita Bangsa[cite: 1], dengan kombinasi pengalaman kerja di bidang Quality Control / Staff Quality, Administrasi HR/Personalia, serta Operasional Warehouse di lingkungan industri manufaktur[cite: 1].
+                </p>
+                <p>
+                    Teruji dalam melakukan inspeksi mutu (incoming, in-process, final), pengoperasian alat ukur presisi tinggi (seperti Faro CMM, Height Gauge, dan Caliper), analisis penyebab masalah, serta pembuatan dokumen standar mutu[cite: 1]. Memiliki pengalaman dalam administrasi personalia seperti pengelolaan absensi, rekapitulasi lembur (SPKL)[cite: 1].
+                </p>
             </div>
         </div>
+    </section>
 
-        <br><br>
-
-        <!-- Pengalaman Kerja -->
+    <!-- BAGIAN 2: PENGALAMAN -->
+    <section id="pengalaman" class="container">
         <h2 class="section-title">Pengalaman Kerja</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <h3>PT Baneex Indonesia</h3>
-                <h4>Staff Quality, Administrasi HR, Operator Warehouse</h4>
-                <p class="date"><i class="far fa-calendar-alt"></i> Oktober 2024 - Mei 2026</p>
-                <p>Mencakup tiga peran multidisiplin secara profesional:</p>
-                <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.95rem; color: #475569;">
-                    <li><strong>HR:</strong> Mengelola data absensi, SPKL, dan kalkulasi alokasi bonus tahunan berbasis kinerja.</li>
-                    <li><strong>Quality:</strong> Inspeksi mutu komponen, analisis gambar teknis, penyortiran (OK/NG/Repair), dan RCA bersama tim.</li>
-                    <li><strong>Warehouse:</strong> Inbound & Outbound barang, stock opname, dan pengoperasian material handling equipment.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <h3>PT Danendra Mitra Industri</h3>
-                <h4>Quality Control</h4>
-                <p class="date"><i class="far fa-calendar-alt"></i> Mei 2024 - Juli 2024</p>
-                <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.95rem; color: #475569;">
-                    <li>Melakukan penyortiran produk secara teliti untuk memisahkan barang standar (OK) dan cacat (NG).</li>
-                    <li>Mengidentifikasi dan mengklasifikasikan jenis kerusakan untuk mendukung perbaikan efisien.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Komisi Pemilihan Umum (KPU)</h3>
-                <h4>Anggota KPPS (Part-time)</h4>
-                <p class="date"><i class="far fa-calendar-alt"></i> Februari 2024</p>
-                <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.95rem; color: #475569;">
-                    <li>Mengatur kelancaran pemungutan suara di TPS (>130 pemilih).</li>
-                    <li>Mencatat laporan hasil suara dengan tingkat akurasi 100%.</li>
-                </ul>
-            </div>
+        
+        <div class="timeline-item">
+            <h3>PT Baneex Indonesia - Kab. Bekasi[cite: 1]</h3>
+            <h4>Staff Quality, HR, & Warehouse Operator[cite: 1]</h4>
+            <p class="date">Oktober 2024 - Mei 2026[cite: 1]</p>
+            <ul>
+                <li><strong>Quality:</strong> Pemeriksaan komponen (incoming, in-process, final), operasional alat ukur presisi, penyortiran (OK/NG/Repair), dan RCA (Root Cause Analysis)[cite: 1].</li>
+                <li><strong>HR:</strong> Verifikasi data absensi, rekap SPKL, pengelolaan bonus tahunan[cite: 1].</li>
+                <li><strong>Warehouse:</strong> Inbound & Outbound barang, stock opname, dan penerapan 5R/5S[cite: 1].</li>
+            </ul>
         </div>
 
-        <br><br>
+        <div class="timeline-item">
+            <h3>PT Danendra Mitra Industri[cite: 1]</h3>
+            <h4>Quality Control[cite: 1]</h4>
+            <p class="date">Mei 2024 - Juli 2024[cite: 1]</p>
+            <ul>
+                <li>Melakukan penyortiran produk hasil produksi (OK, NG, Repair) dan klasifikasi kerusakan produk[cite: 1].</li>
+            </ul>
+        </div>
+        
+        <div class="timeline-item">
+            <h3>Komisi Pemilihan Umum (KPU)[cite: 1]</h3>
+            <h4>Anggota KPPS[cite: 1]</h4>
+            <p class="date">Februari 2024[cite: 1]</p>
+            <ul>
+                <li>Mengatur jalannya pemungutan suara di TPS (>130 pemilih) dengan akurasi data 100%[cite: 1].</li>
+            </ul>
+        </div>
+    </section>
 
-        <!-- Pendidikan -->
-        <h2 class="section-title">Pendidikan & Organisasi</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Universitas Pelita Bangsa</h3>
-                <h4>S1 Manajemen Sumber Daya Manusia (IPK: 3.36)</h4>
-                <p class="date"><i class="far fa-calendar-alt"></i> September 2021 - Agustus 2025</p>
-                <p style="font-size: 0.95rem; color: #475569;">Fokus studi: Perencanaan dan Pengembangan SDM, Manajemen Mutu/TQM.</p>
-            </div>
+    <!-- BAGIAN 3: PORTOFOLIO (Bisa dimasukkan gambar/link nanti) -->
+    <section id="portofolio" class="container">
+        <h2 class="section-title">Portofolio & Sertifikasi</h2>
+        <div class="portfolio-grid">
             
-            <div class="timeline-item">
-                <h3>Pengabdian Masyarakat (KKN)</h3>
-                <h4>Ketua Pelaksana & Koordinator</h4>
-                <p class="date"><i class="far fa-calendar-alt"></i> 2024</p>
-                <p style="font-size: 0.95rem; color: #475569;">Memimpin program pengabdian di Kp. Ciranggon dan bertanggung jawab sebagai pembuat Infografis Desa.</p>
+            <!-- Item Portofolio 1 -->
+            <div class="portfolio-item">
+                <!-- Ganti tulisan "Tempat Foto" dengan tag img Anda nanti. Contoh: <img src="nama-foto1.jpg" alt="Sertifikat" class="portfolio-img"> -->
+                <div class="portfolio-img">📷 Tempat Foto 1</div>
+                <div class="portfolio-info">
+                    <h3>Sertifikat QC / Pengukuran</h3>
+                    <p>Deskripsi singkat tentang dokumen/foto ini. Misalnya: Pengoperasian Faro CMM.</p>
+                </div>
+            </div>
+
+            <!-- Item Portofolio 2 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img">📷 Tempat Foto 2</div>
+                <div class="portfolio-info">
+                    <h3>Dokumen Laporan RCA</h3>
+                    <p>Contoh analisis Fishbone Diagram atau 8D Report yang pernah dikerjakan.</p>
+                </div>
+            </div>
+
+            <!-- Item Portofolio 3 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img">📷 Tempat Foto 3</div>
+                <div class="portfolio-info">
+                    <h3>Kegiatan KKN / Pengabdian</h3>
+                    <p>Dokumentasi sebagai Ketua Pelaksana KKN di Desa Cipayung[cite: 1].</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BAGIAN 4: CONTACT US -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-wrapper">
+            <!-- Informasi Kontak -->
+            <div class="contact-details">
+                <h3>Mari Bekerja Sama</h3>
+                <br>
+                <p><i class="fas fa-envelope"></i> muhamadalvianindracahya1532@gmail.com[cite: 1]</p>
+                <p><i class="fas fa-phone"></i> +62 81213790295[cite: 1]</p>
+                <p><i class="fab fa-linkedin"></i> linkedin.com/in/maindrac15[cite: 1]</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kab. Bekasi, Jawa Barat[cite: 1]</p>
+            </div>
+
+            <!-- Form Kontak (Placeholder, belum berfungsi tanpa backend) -->
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+                    <button type="button">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
-
-    </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Muhamad Alvian Indra Cahya. All Rights Reserved.</p>
