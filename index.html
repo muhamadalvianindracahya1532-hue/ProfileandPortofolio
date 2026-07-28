@@ -44,15 +44,16 @@
             padding: 15px 20px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -108,9 +109,6 @@
 
         /* Profile Section */
         .profile-content {
-            display: flex;
-            gap: 30px;
-            align-items: center;
             background: var(--card-bg);
             padding: 40px;
             border-radius: 15px;
@@ -123,6 +121,25 @@
             font-size: 1.05rem;
         }
 
+        /* Skills Section */
+        .skills-wrapper {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .skills-card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent-color);
+        }
+        .skills-card h3 { color: var(--primary-color); margin-bottom: 15px; text-align: center; }
+        .skills-card ul { margin-left: 20px; font-size: 0.95rem; }
+        .skills-card li { margin-bottom: 10px; text-align: justify;}
+
         /* Experience Timeline */
         .timeline-item {
             background: var(--card-bg);
@@ -132,11 +149,13 @@
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .timeline-item h3 { color: var(--primary-color); }
-        .timeline-item h4 { color: var(--accent-color); margin: 5px 0 10px; }
+        .timeline-item h3 { color: var(--primary-color); font-size: 1.3rem;}
+        .timeline-item h4 { color: var(--accent-color); margin: 15px 0 5px; font-size: 1.1rem;}
         .timeline-item p.date { color: #64748b; font-weight: 600; margin-bottom: 15px; font-size: 0.9rem;}
+        .timeline-item ul { margin-left: 20px; font-size: 0.95rem;}
+        .timeline-item li { margin-bottom: 8px; text-align: justify;}
 
-        /* Portofolio Section with Tabs (Website in Website) */
+        /* Portofolio Section with Tabs */
         .portfolio-tabs {
             display: flex;
             justify-content: center;
@@ -196,11 +215,10 @@
             transform: translateY(-8px);
         }
 
-        /* PERUBAHAN UKURAN GAMBAR 1200x1600 */
         .portfolio-img {
             width: 100%;
             height: auto;
-            aspect-ratio: 3 / 4; /* Rasio setara dengan 1200x1600 agar proporsional dan besar */
+            aspect-ratio: 3 / 4;
             background-color: #cbd5e1;
             display: flex;
             align-items: center;
@@ -224,16 +242,9 @@
             margin-bottom: 12px;
             font-size: 1.25rem;
         }
-
-        .portfolio-info ul {
-            margin-left: 20px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-            color: #475569;
-        }
-
-        .portfolio-info li {
-            margin-bottom: 6px;
+        
+        .portfolio-info p {
+            text-align: justify;
         }
 
         /* Contact Section */
@@ -249,15 +260,17 @@
 
         .contact-details p {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 15px;
+            word-break: break-all;
         }
 
         .contact-details i {
             color: var(--accent-color);
             font-size: 1.5rem;
+            min-width: 25px;
         }
 
         .contact-form input, .contact-form textarea {
@@ -295,7 +308,6 @@
 
         @media (max-width: 768px) {
             .contact-wrapper { grid-template-columns: 1fr; }
-            nav { flex-wrap: wrap; gap: 15px; }
             header { padding-top: 120px; }
         }
     </style>
@@ -305,10 +317,12 @@
     <!-- Navigasi -->
     <nav>
         <a href="#header">Home</a>
-        <a href="#profile">Profile</a>
+        <a href="#profile">Profil</a>
+        <a href="#keterampilan">Keterampilan</a>
         <a href="#pengalaman">Pengalaman</a>
+        <a href="#pendidikan">Pendidikan</a>
         <a href="#portofolio">Portofolio</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <!-- Header -->
@@ -319,54 +333,153 @@
 
     <!-- BAGIAN 1: PROFILE -->
     <section id="profile" class="container">
-        <h2 class="section-title">Profile</h2>
+        <h2 class="section-title">Profil</h2>
         <div class="profile-content">
             <div class="profile-text">
                 <p>
-                    Lulusan S1 Manajemen Sumber Daya Manusia dari Universitas Pelita Bangsa, dengan kombinasi pengalaman kerja di bidang Quality Control / Staff Quality, Administrasi HR/Personalia, serta Operasional Warehouse di lingkungan industri manufaktur.
+                    Lulusan S1 Manajemen Sumber Daya Manusia dari Universitas Pelita Bangsa, dengan kombinasi pengalaman kerja di bidang Quality Control / Staff Quality, Administrasi HR/Personalia, serta Operasional Warehouse di lingkungan industri manufaktur. Teruji dalam melakukan inspeksi mutu (incoming, in-process, final), pengoperasian alat ukur presisi tinggi (seperti Faro CMM, Height Gauge, dan Caliper), analisis penyebab masalah (Root Cause Analysis menggunakan 5 Why, Fishbone, dan 8D Report), serta pembuatan dokumen standar mutu (SOP/LIK).
                 </p>
                 <p>
-                    Teruji dalam melakukan inspeksi mutu (incoming, in-process, final), pengoperasian alat ukur presisi tinggi (seperti Faro CMM, Height Gauge, dan Caliper), analisis penyebab masalah, serta pembuatan dokumen standar mutu. Memiliki pengalaman dalam administrasi personalia seperti pengelolaan absensi, rekapitulasi lembur (SPKL).
+                    Memiliki pengalaman dalam administrasi personalia seperti pengelolaan absensi, rekapitulasi lembur (SPKL). Berorientasi pada ketelitian tinggi, efisiensi operasional, kepemimpinan tim, serta pengembangan mutu dan SDM perusahaan.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- BAGIAN 2: PENGALAMAN -->
+    <!-- BAGIAN 2: KETERAMPILAN -->
+    <section id="keterampilan" class="container">
+        <h2 class="section-title">Keterampilan</h2>
+        <div class="skills-wrapper">
+            <!-- Hard Skill -->
+            <div class="skills-card">
+                <h3><i class="fas fa-cogs"></i> Hard Skill</h3>
+                <ul>
+                    <li><strong>Quality Control & Assurance:</strong> Incoming, In-Process, & Final Inspection, NG Handling & Sorting (Kategori OK, NG, Repair), Klasifikasi Kerusakan & Pelaporan Defect Rate.</li>
+                    <li><strong>Pengoperasian Alat Ukur Presisi:</strong> Faro CMM (Coordinate Measuring Machine), Height Gauge, dan Digital/Long Caliper.</li>
+                    <li><strong>Analisis Perbaikan Mutu & RCA:</strong> Root Cause Analysis (5 Why Analysis, Fishbone Diagram, 8D Report), Corrective Action, serta pemahaman Total Quality Management (TQM).</li>
+                    <li><strong>Standardisasi Mutu & Pembacaan Drawing:</strong> Pembacaan Gambar Teknis (Engineering Drawing & toleransi ukuran), Penyusunan Quality Checksheet, SOP, Lembar Instruksi Kerja (LIK), dan Quality Standard Table.</li>
+                    <li><strong>Administrasi HR & Personalia:</strong> Verifikasi & pemantauan data kehadiran karyawan, Rekapitulasi Surat Perintah Kerja Lembur (SPKL).</li>
+                    <li><strong>Operasional Warehouse & Logistik:</strong> Inbound & Outbound Operations (Unloading, Put-away, Picking, Packing, Loading), Stock Opname / Physical Count, Penerapan Prinsip 5R / 5S, serta Pengoperasian Material Handling Equipment (Hand Stacker, Hand Pallet, Trolley).</li>
+                    <li><strong>Dukungan Teknis IT & Administrasi:</strong> Troubleshooting software/hardware PC, Pengoperasian Microsoft Office, dan Pemeliharaan Jaringan Lokal.</li>
+                </ul>
+            </div>
+            
+            <!-- Soft Skill -->
+            <div class="skills-card">
+                <h3><i class="fas fa-users"></i> Soft Skill</h3>
+                <ul>
+                    <li><strong>Kepemimpinan & Manajemen Tim:</strong> Berpengalaman memimpin dan mengarahkan operator inspeksi di area mutu, serta dipercaya menjadi Ketua Pelaksana Program Kerja Pengabdian Masyarakat (KKN).</li>
+                    <li><strong>Pemecahan Masalah (Problem Solving):</strong> Mampu melakukan analisis akar masalah teknis di lini produksi serta menentukan tindakan korektif yang efektif.</li>
+                    <li><strong>Ketelitian & Akurasi Data:</strong> Memiliki tingkat presisi tinggi dalam pengoperasian alat ukur presisi, rekapitulasi data absensi/lembur, maupun pencatatan laporan resmi.</li>
+                    <li><strong>Komunikasi & Koordinasi Lintas Divisi:</strong> Mampu berkomunikasi aktif dengan tim Produksi, Maintenance, HR, hingga pihak luar/lembaga publik.</li>
+                    <li><strong>Adaptabilitas & Kerja Sama Tim:</strong> Cepat beradaptasi di berbagai alur operasional (Quality, HR, Warehouse, IT) dan bekerja sama secara proaktif dalam tim.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN 3: PENGALAMAN KERJA -->
     <section id="pengalaman" class="container">
         <h2 class="section-title">Pengalaman Kerja</h2>
         
+        <!-- PT Baneex Indonesia -->
         <div class="timeline-item">
-            <h3>PT Baneex Indonesia - Kab. Bekasi</h3>
-            <h4>Staff Quality, HR, & Warehouse Operator</h4>
+            <h3>PT Baneex Indonesia - Kab. Bekasi, Jawa Barat</h3>
             <p class="date">Oktober 2024 - Mei 2026</p>
+            
+            <h4>Human Resource (Oktober 2024 – Mei 2026)</h4>
             <ul>
-                <li><strong>Quality:</strong> Pemeriksaan komponen (incoming, in-process, final), operasional alat ukur presisi, penyortiran (OK/NG/Repair), dan RCA (Root Cause Analysis).</li>
-                <li><strong>HR:</strong> Verifikasi data absensi, rekap SPKL, pengelolaan bonus tahunan.</li>
-                <li><strong>Warehouse:</strong> Inbound & Outbound barang, stock opname, dan penerapan 5R/5S.</li>
+                <li><strong>Administrasi Personalia:</strong> Penginputan, verifikasi, dan pemantauan ketidaksesuaian data kehadiran harian (fingerprint/kartu absen). Tindak lanjut (follow-up) ke karyawan atau kepala regu (foreman) terkait kendala absen (mangkir, lupa absen, surat dokter/izin).</li>
+                <li><strong>Rekapitulasi:</strong> Rekapitulasi Surat Perintah Kerja Lembur (SPKL) dan perhitungan total jam lembur per karyawan.</li>
+                <li><strong>Pengelolaan Bonus Akhir Tahun:</strong> Mengolah data absensi dan mengombinasikannya dengan analisis kriteria kinerja karyawan serta indikator pendapatan perusahaan sebagai bahan pertimbangan alokasi bonus tahunan.</li>
+                <li><strong>Pelatihan Teknis dan SOP:</strong> Mengoordinasikan pelatihan operasional, pemeliharaan (basic maintenance).</li>
+            </ul>
+
+            <h4>Staff Quality (Februari 2025 – Mei 2026)</h4>
+            <ul>
+                <li><strong>Inspection & Measurement:</strong> Melakukan incoming inspection (barang masuk dari supplier), in-process inspection (proses produksi berlangsung), hingga final inspection (barang siap kirim/FG). Menggunakan dan mengalibrasi alat ukur manual maupun digital/otomatis (Digital/Long Caliper, Height Gauge, Faro CMM). Menganalisis engineering drawing sebagai acuan batas toleransi barang standar (OK).</li>
+                <li><strong>NG Handling & Penyortiran:</strong> Memisahkan produk (OK, NG, Repair), memasang label identifikasi (red tag/status tag), serta mengidentifikasi dan mengategorikan jenis cacat (burry, baret, dent, dimensi over/under tolerance, atau retak).</li>
+                <li><strong>Root Cause Analysis:</strong> Melakukan penguraian masalah (5 Why Analysis, Fishbone Diagram, 8D Report) bersama tim Produksi dan Maintenance. Memantau efektivitas perbaikan di lini produksi (Corrective Action).</li>
+                <li><strong>Pengelolaan Dokumen Mutu & Pelaporan:</strong> Mengisi checksheet, membuat SOP/LIK, Quality Standard Table, dan menyusun laporan bulanan mengenai defect rate, scrap, dan tren klaim kualitas.</li>
+                <li><strong>Koordinasi & Kepemimpinan Tim:</strong> Berkomunikasi aktif dengan operator/foreman (stop, call, wait) dan memimpin/mengarahkan tim penyortir di area inspeksi.</li>
+            </ul>
+
+            <h4>Operator Warehouse (Oktober 2024 – Januari 2025)</h4>
+            <ul>
+                <li><strong>Inbound Operations:</strong> Melakukan pembongkaran muatan (unloading), pemeriksaan awal fisik kemasan barang, dan penempatan barang (put-away) ke rak/pallet sesuai instruksi zona penyimpanan.</li>
+                <li><strong>Outbound Operations:</strong> Mengambil barang (picking) berdasarkan Packing List/Traveling Sheet, pengemasan (packing, strapping, wrapping), pelabelan (labeling), dan memuat barang (loading) ke dalam truk.</li>
+                <li><strong>Stock Control & Housekeeping:</strong> Membantu Stock Opname berkala, memisahkan barang rusak ke area karantina, dan menerapkan 5R/5S (menjaga kebersihan dan alur jalan gudang).</li>
+                <li><strong>Material Handling Equipment:</strong> Mengoperasikan alat angkut seperti Hand Stacker, Hand Pallet (manual/elektrik), dan Trolley.</li>
             </ul>
         </div>
 
+        <!-- PT Danendra Mitra Industri -->
         <div class="timeline-item">
-            <h3>PT Danendra Mitra Industri</h3>
+            <h3>PT Danendra Mitra Industri - Kab. Bekasi, Jawa Barat</h3>
             <h4>Quality Control</h4>
             <p class="date">Mei 2024 - Juli 2024</p>
             <ul>
-                <li>Melakukan penyortiran produk hasil produksi (OK, NG, Repair) dan klasifikasi kerusakan produk.</li>
+                <li>Melakukan penyortiran produk hasil produksi secara teliti untuk memisahkan barang standar (OK), barang cacat (NG), serta barang yang memerlukan perbaikan (repair).</li>
+                <li>Mengidentifikasi dan mengklasifikasikan jenis kerusakan pada produk produksi guna mendukung proses perbaikan yang efisien.</li>
             </ul>
         </div>
         
+        <!-- KOMISI PEMILIHAN UMUM -->
         <div class="timeline-item">
-            <h3>Komisi Pemilihan Umum (KPU)</h3>
-            <h4>Anggota KPPS</h4>
+            <h3>KOMISI PEMILIHAN UMUM – Perumahan Unilever</h3>
+            <h4>Anggota KPPS (Part time)</h4>
             <p class="date">Februari 2024</p>
             <ul>
-                <li>Mengatur jalannya pemungutan suara di TPS (>130 pemilih) dengan akurasi data 100%.</li>
+                <li>Mengatur jalannya pemungutan suara di TPS dengan jumlah pemilih lebih dari 130 orang.</li>
+                <li>Berkoordinasi dengan 8 anggota KPPS lainnya untuk memastikan kelancaran komunikasi.</li>
+                <li>Mencatat dan menyusun laporan hasil suara dengan akurasi 100%, diserahkan tepat waktu ke pihak PPS.</li>
+                <li>Berkontribusi menjaga integritas dan transparansi proses pemilu dengan tetap bersikap netral.</li>
+            </ul>
+        </div>
+
+        <!-- PT Sebastian Jaya Metal -->
+        <div class="timeline-item">
+            <h3>PT Sebastian Jaya Metal - Kab. Bekasi, Jawa Barat</h3>
+            <h4>Praktik Kerja Industri (IT Support)</h4>
+            <p class="date">November 2018 - Januari 2019</p>
+            <ul>
+                <li>Mengelola instalasi dan konfigurasi perangkat lunak serta sistem operasi pada unit komputer untuk memastikan kesiapan operasional karyawan.</li>
+                <li>Melakukan pemeliharaan dan perbaikan perangkat keras termasuk penggantian komponen PC dan periferal guna meminimalkan waktu henti teknis kantor.</li>
+                <li>Menangani troubleshooting aplikasi Microsoft Office dan perangkat lunak produktivitas lainnya untuk mendukung kelancaran administrasi harian tim.</li>
+                <li>Mendukung operasional departemen TI di lingkungan manufaktur, memantau stabilitas jaringan lokal dan konektivitas perangkat.</li>
             </ul>
         </div>
     </section>
 
-    <!-- BAGIAN 3: PORTOFOLIO (SISTEM TAB / WEBSITE DALAM WEBSITE) -->
+    <!-- BAGIAN 4: PENDIDIKAN & ORGANISASI -->
+    <section id="pendidikan" class="container">
+        <h2 class="section-title">Pendidikan & Organisasi</h2>
+        <div class="contact-wrapper" style="grid-template-columns: 1fr;">
+            
+            <div class="timeline-item" style="box-shadow: none; border-left: 5px solid #10b981; margin-bottom: 0;">
+                <h3>Universitas Pelita Bangsa – Kabupaten Bekasi</h3>
+                <h4>S1 Manajemen Sumber Daya Manusia</h4>
+                <p class="date">11 September 2021 – 16 Agustus 2025 | IPK: 3.36 / 4.00</p>
+                <ul>
+                    <li><strong>Mata Pelajaran yang Relevan:</strong> Perencanaan dan Pengembangan SDM dan Manajemen Mutu/TQM.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item" style="box-shadow: none; border-left: 5px solid #f59e0b; margin-top: -20px;">
+                <h3>Pengabdian Masyarakat (KKN) - Kp. Ciranggon, Desa Cipayung, Kab. Bekasi</h3>
+                <h4>Ketua Pelaksana Program Kerja & Koordinator Pengabdian</h4>
+                <p class="date">2024</p>
+                <ul>
+                    <li>Memimpin dan mengoordinasikan eksekusi seluruh kegiatan pengabdian masyarakat di wilayah timur Desa Cipayung (Kp. Ciranggon).</li>
+                    <li>Bertindak sebagai penanggung jawab utama (project leader) dalam perencanaan, pembuatan, dan penyusunan Infografis Desa untuk transparansi informasi publik.</li>
+                    <li>Mengelola komunikasi, koordinasi dengan tokoh masyarakat/perangkat desa, serta penyusunan alokasi kegiatan tim KKN agar program kerja berjalan tepat waktu dan berdampak positif.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BAGIAN 5: PORTOFOLIO (SISTEM TAB / WEBSITE DALAM WEBSITE) -->
     <section id="portofolio" class="container">
         <h2 class="section-title">Portofolio & Sertifikasi</h2>
         
@@ -468,7 +581,6 @@
         <!-- 4. PANE KEPEMIMPINAN & KKN -->
         <div id="pane-leadership" class="portfolio-pane">
             <div class="portfolio-grid">
-                <!-- Diperbaiki: Tag Gambar NIB -->
                 <div class="portfolio-item">
                     <img src="nib.jpg" alt="Pembuatan NIB UMKM" class="portfolio-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'1600\'><rect width=\'100%\' height=\'100%\' fill=\'%23cbd5e1\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'14\'>🏛️ Pembuatan NIB UMKM</text></svg>';">
                     <div class="portfolio-info">
@@ -477,7 +589,6 @@
                     </div>
                 </div>
 
-                <!-- Diperbaiki: Tag Gambar Infografis -->
                 <div class="portfolio-item">
                     <img src="infografis.jpg" alt="Infografis Desa & Sosialisasi" class="portfolio-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'1600\'><rect width=\'100%\' height=\'100%\' fill=\'%23cbd5e1\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'14\'>🎨 Infografis Desa &amp; Sosialisasi</text></svg>';">
                     <div class="portfolio-info">
@@ -486,7 +597,6 @@
                     </div>
                 </div>
 
-                <!-- Diperbaiki: Tag Gambar Imunisasi -->
                 <div class="portfolio-item">
                     <img src="imunisasi.jpg" alt="Program Imunisasi & Pengabdian" class="portfolio-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'1600\'><rect width=\'100%\' height=\'100%\' fill=\'%23cbd5e1\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'14\'>💉 Program Imunisasi &amp; Pengabdian</text></svg>';">
                     <div class="portfolio-info">
@@ -498,7 +608,7 @@
         </div>
     </section>
 
-    <!-- BAGIAN 5: CONTACT US -->
+    <!-- BAGIAN 6: CONTACT US -->
     <section id="contact" class="container">
         <h2 class="section-title">Contact Us</h2>
         <div class="contact-wrapper">
@@ -509,7 +619,8 @@
                 <p><i class="fas fa-envelope"></i> muhamadalvianindracahya1532@gmail.com</p>
                 <p><i class="fas fa-phone"></i> +62 81213790295</p>
                 <p><i class="fab fa-linkedin"></i> linkedin.com/in/maindrac15</p>
-                <p><i class="fas fa-map-marker-alt"></i> Kab. Bekasi, Jawa Barat</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kabupaten Bekasi, Jawa Barat</p>
+                <p><i class="fas fa-link"></i> <a href="http://urlkub.co/zwypeO" target="_blank" style="color:var(--text-color); text-decoration:none;">Portofolio (Scan QR / urlkub.co/zwypeO)</a></p>
             </div>
 
             <!-- Form Kontak -->
