@@ -136,7 +136,46 @@
         .timeline-item h4 { color: var(--accent-color); margin: 5px 0 10px; }
         .timeline-item p.date { color: #64748b; font-weight: 600; margin-bottom: 15px; font-size: 0.9rem;}
 
-        /* Portofolio Section */
+        /* Portofolio Section with Tabs (Website in Website) */
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #e2e8f0;
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .portfolio-pane {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .portfolio-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -147,33 +186,52 @@
             background: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
 
         .portfolio-img {
             width: 100%;
-            height: 250px; /* Diperbesar sedikit agar gambar terlihat lebih jelas */
+            height: 220px;
             background-color: #cbd5e1;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #475569;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             object-fit: cover;
+            font-weight: 500;
         }
 
         .portfolio-info {
-            padding: 20px;
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .portfolio-info h3 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .portfolio-info ul {
+            margin-left: 20px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .portfolio-info li {
+            margin-bottom: 6px;
         }
 
         /* Contact Section */
@@ -306,38 +364,102 @@
         </div>
     </section>
 
-    <!-- BAGIAN 3: PORTOFOLIO -->
+    <!-- BAGIAN 3: PORTOFOLIO (SISTEM TAB / WEBSITE DALAM WEBSITE) -->
     <section id="portofolio" class="container">
         <h2 class="section-title">Portofolio & Sertifikasi</h2>
-        <div class="portfolio-grid">
-            
-            <!-- Item Portofolio 1 (Foto Faro CMM Anda) -->
-            <div class="portfolio-item">
-               <img src="CMM.jpg" alt="Portofolio Alvian" class="portfolio-img">
-                <div class="portfolio-info">
-                    <h3>Pengoperasian Alat Ukur Presisi</h3>
-                    <p>Melakukan inspeksi mutu secara teliti menggunakan lengan pengukur portabel Faro CMM (Coordinate Measuring Machine) untuk memastikan dimensi komponen presisi sesuai dengan standar teknis.</p>
+        
+        <!-- Tab Navigation -->
+        <div class="portfolio-tabs">
+            <button class="tab-btn active" onclick="openPortfolio(event, 'pane-quality')">Staff Quality</button>
+            <button class="tab-btn" onclick="openPortfolio(event, 'pane-hr')">HR Administration</button>
+            <button class="tab-btn" onclick="openPortfolio(event, 'pane-leadership')">Kepemimpinan & KKN</button>
+        </div>
+
+        <!-- 1. PANE STAFF QUALITY -->
+        <div id="pane-quality" class="portfolio-pane active">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="CMM.jpg" alt="Faro CMM Portofolio" class="portfolio-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'220\'><rect width=\'100%\' height=\'100%\' fill=\'%23cbd5e1\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'14\'>📷 Foto Pengukuran Faro CMM</text></svg>';">
+                    <div class="portfolio-info">
+                        <h3>Pengukuran Presisi Faro CMM</h3>
+                        <p>Melakukan inspeksi mutu secara teliti menggunakan lengan pengukur portabel Faro CMM, Height Gauge, dan Caliper untuk memastikan dimensi komponen sesuai standar teknis.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">📊 Problem Solving & RCA</div>
+                    <div class="portfolio-info">
+                        <h3>Analisis & Problem Solving (RCA)</h3>
+                        <p>Penerapan Root Cause Analysis menggunakan Fishbone Diagram & 8D Report untuk mengatasi cacat produksi serta menyusun langkah pencegahan defect berulang.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">📑 Checksheet & Gambar Teknik</div>
+                    <div class="portfolio-info">
+                        <h3>Checksheet & Baca Gambar Teknik</h3>
+                        <p>Keahlian membaca blueprint/gambar teknik secara presisi serta mengimplementasikan checksheet inspeksi (incoming, in-process, final) dengan akurat.</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Item Portofolio 2 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img">📷 Tempat Foto 2</div>
-                <div class="portfolio-info">
-                    <h3>Dokumen Laporan RCA</h3>
-                    <p>Contoh analisis Fishbone Diagram atau 8D Report yang pernah dikerjakan (Bisa diganti fotonya nanti).</p>
+        <!-- 2. PANE HR ADMINISTRATION -->
+        <div id="pane-hr" class="portfolio-pane">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">🕒 Verifikasi Absensi</div>
+                    <div class="portfolio-info">
+                        <h3>Verifikasi Absensi Karyawan</h3>
+                        <p>Pengelolaan dan pengecekan data kehadiran harian/bulanan karyawan secara teliti untuk memastikan validitas data payroll dan kedisiplinan kerja.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">📝 Rekapitulasi Lembur (SPKL)</div>
+                    <div class="portfolio-info">
+                        <h3>Rekapitulasi Surat Perintah Kerja Lembur (SPKL)</h3>
+                        <p>Melakukan pencatatan, verifikasi, dan rekapitulasi lembur operasional perusahaan secara sistematis sesuai dengan peraturan ketenagakerjaan yang berlaku.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">💼 Administrasi Personalia</div>
+                    <div class="portfolio-info">
+                        <h3>Administrasi & Pengelolaan Personalia</h3>
+                        <p>Mendukung pengelolaan operasional HR mulai dari rekapitulasi data karyawan, bonus tahunan, hingga dokumentasi kepegawaian internal.</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Item Portofolio 3 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img">📷 Tempat Foto 3</div>
-                <div class="portfolio-info">
-                    <h3>Kegiatan KKN / Pengabdian</h3>
-                    <p>Dokumentasi sebagai Ketua Pelaksana KKN di Desa Cipayung (Bisa diganti fotonya nanti).</p>
+        <!-- 3. PANE KEPEMIMPINAN & KKN -->
+        <div id="pane-leadership" class="portfolio-pane">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">🏛️ Pembuatan NIB UMKM</div>
+                    <div class="portfolio-info">
+                        <h3>Pembuatan NIB (Nomor Induk Berusaha)</h3>
+                        <p>Program pendampingan dan pembuatan legalitas usaha (NIB) bagi pelaku UMKM lokal guna mendukung legalitas dan pengembangan ekonomi masyarakat.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">🎨 Infografis Desa & Sosialisasi</div>
+                    <div class="portfolio-info">
+                        <h3>Infografis & Publikasi Desa Cipayung</h3>
+                        <p>Perancangan media informasi/infografis visual dan program penyuluhan masyarakat sebagai bentuk kontribusi aktif dalam kegiatan KKN.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img">💉 Program Imunisasi & Pengabdian</div>
+                    <div class="portfolio-info">
+                        <h3>Ketua Pelaksana KKN & Program Kesehatan</h3>
+                        <p>Memimpin tim KKN dalam mengkoordinasikan program sosial kemasyarakatan, termasuk kolaborasi dalam kegiatan posyandu/imunisasi anak di desa.</p>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -370,6 +492,27 @@
     <footer>
         <p>&copy; 2026 Muhamad Alvian Indra Cahya. All Rights Reserved.</p>
     </footer>
+
+    <!-- Script untuk Interaksi Tab Portfolio -->
+    <script>
+        function openPortfolio(evt, paneId) {
+            // Sembunyikan semua pane portofolio
+            let panes = document.getElementsByClassName("portfolio-pane");
+            for (let i = 0; i < panes.length; i++) {
+                panes[i].classList.remove("active");
+            }
+
+            // Hapus kelas aktif dari semua tombol tab
+            let buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Tampilkan pane yang diklik dan aktifkan tombolnya
+            document.getElementById(paneId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
