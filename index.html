@@ -200,6 +200,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            align-items: start; /* Mencegah kartu memanjang jika isinya sedikit */
         }
 
         .portfolio-item {
@@ -219,7 +220,7 @@
         .portfolio-img {
             width: 100%;
             height: auto;
-            aspect-ratio: 3 / 4;
+            aspect-ratio: 3 / 4; 
             background-color: #cbd5e1;
             display: flex;
             align-items: center;
@@ -230,22 +231,27 @@
             font-weight: 500;
         }
 
+        /* PERBAIKAN SPASI PORTOFOLIO INFO */
         .portfolio-info {
-            padding: 25px;
-            flex-grow: 1;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 10px; /* Jarak yang konsisten dan rapi antara judul dan teks */
         }
 
         .portfolio-info h3 {
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
+            line-height: 1.3;
+            margin: 0; /* Reset margin agar diatur oleh gap */
         }
         
         .portfolio-info p {
-            text-align: justify;
+            text-align: left; /* Rata kiri agar spasi kata tidak berantakan/terlalu jauh */
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Contact Section */
@@ -312,7 +318,6 @@
            MEDIA QUERIES UNTUK TAMPILAN RESPONSIVE (HP)
            ========================================= */
         @media (max-width: 768px) {
-            /* Navigasi lebih ringkas */
             nav { 
                 padding: 10px; 
                 gap: 10px; 
@@ -322,7 +327,6 @@
                 font-size: 0.85rem;
             }
             
-            /* Header disesuaikan ukurannya */
             header { 
                 padding: 120px 15px 60px; 
             }
@@ -333,7 +337,6 @@
                 font-size: 1rem;
             }
 
-            /* Container padding lebih kecil di HP */
             .container {
                 padding: 50px 15px;
             }
@@ -343,7 +346,6 @@
                 margin-bottom: 30px;
             }
 
-            /* Grid menjadi 1 kolom (atas-bawah) */
             .contact-wrapper { 
                 grid-template-columns: 1fr; 
                 padding: 25px;
@@ -356,11 +358,10 @@
                 padding: 25px;
             }
             
-            /* Portofolio Tab Buttons lebih kecil */
             .tab-btn {
                 padding: 8px 16px;
                 font-size: 0.85rem;
-                flex-grow: 1; /* Biar tombolnya proporsional di HP */
+                flex-grow: 1; 
                 text-align: center;
             }
 
