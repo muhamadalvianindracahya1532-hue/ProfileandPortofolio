@@ -73,6 +73,7 @@
         header h1 {
             font-size: 2.8rem;
             margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         header h2 {
@@ -197,7 +198,7 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -304,11 +305,68 @@
             color: white;
             text-align: center;
             padding: 20px;
+            font-size: 0.9rem;
         }
 
+        /* =========================================
+           MEDIA QUERIES UNTUK TAMPILAN RESPONSIVE (HP)
+           ========================================= */
         @media (max-width: 768px) {
-            .contact-wrapper { grid-template-columns: 1fr; }
-            header { padding-top: 120px; }
+            /* Navigasi lebih ringkas */
+            nav { 
+                padding: 10px; 
+                gap: 10px; 
+                justify-content: center;
+            }
+            nav a {
+                font-size: 0.85rem;
+            }
+            
+            /* Header disesuaikan ukurannya */
+            header { 
+                padding: 120px 15px 60px; 
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header h2 {
+                font-size: 1rem;
+            }
+
+            /* Container padding lebih kecil di HP */
+            .container {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+
+            /* Grid menjadi 1 kolom (atas-bawah) */
+            .contact-wrapper { 
+                grid-template-columns: 1fr; 
+                padding: 25px;
+            }
+            .skills-card {
+                min-width: 100%;
+                padding: 20px;
+            }
+            .profile-content {
+                padding: 25px;
+            }
+            
+            /* Portofolio Tab Buttons lebih kecil */
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                flex-grow: 1; /* Biar tombolnya proporsional di HP */
+                text-align: center;
+            }
+
+            .timeline-item {
+                padding: 20px;
+            }
         }
     </style>
 </head>
